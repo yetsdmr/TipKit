@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ContentView: View {
     var body: some View {
@@ -17,6 +18,10 @@ struct ContentView: View {
         }
         .padding()
     }
+}
+
+struct FavouriteTip: Tip {
+    
 }
 
 #Preview {

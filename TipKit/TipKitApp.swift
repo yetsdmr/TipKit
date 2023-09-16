@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct TipKitApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    do {
+                        try await Tips.configure {
+                            DisplayFrequency(.immediate)
+                            DatastoreLocation(.applicationDefault, shouldReset: true)
+                        }
+                    } catch {
+                        print (error.localizedDescription)
+                    }
+                }
         }
     }
 }
