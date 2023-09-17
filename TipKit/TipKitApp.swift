@@ -17,7 +17,8 @@ struct TipKitApp: App {
                     do {
                         try await Tips.configure {
                             DisplayFrequency(.immediate)
-                            DatastoreLocation(.applicationDefault, shouldReset: true)
+                            DatastoreLocation(.applicationDefault)
+                            //DatastoreLocation(.applicationDefault, shouldReset: true)
                         }
                     } catch {
                         print (error.localizedDescription)

@@ -9,19 +9,41 @@ import SwiftUI
 import TipKit
 
 struct ContentView: View {
+    private var favouriteTip = FavouriteTip()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                
+            }
+            .navigationTitle ("Messages")
+            .toolbar (content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "star")
+                    }
+                    .popoverTip(favouriteTip,arrowEdge: .top)
+
+                }
+            })
         }
-        .padding()
     }
 }
 
 struct FavouriteTip: Tip {
     
+    var title: Text {
+        Text("Move Contact to Favourites")
+    }
+    
+    var message: Text? {
+        Text("Frequently opened Chats can be moved to favourites for ease of access!")
+    }
+    
+    var asset: Image? {
+        Image(systemName: "star")
+    }
 }
 
 #Preview {
